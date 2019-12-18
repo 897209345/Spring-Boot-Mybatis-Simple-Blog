@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang = "zh" xmlns:th = "http://www.thymeleaf.org">
+<head>
+	<meta charset = "UTF-8">
+	<title>我的文章</title>
+</head>
+<body>
+<div th:include = "index::top"></div>
+<center>
+	<h3>我的文章</h3>
+	<table border = "1" cellpadding="3" Style="border-collapse:collapse;border-color: #cccccc">
+		<tr align = "center" style="font-family: 黑体;background-color: #999999">
+			<td width = "500">标题</td>
+			<td>发布时间</td>
+			<td>操作</td>
+		</tr>
+		<tr th:each = "article:${articles}">
+			<td><a th:href = "@{'/main/viewArticle?articleId='+${article.articleId}}" th:text = "${article.title}"></a>
+			</td>
+			<td th:text = "${article.publishTime}"></td>
+			<td>
+				<a th:href = "@{'/main/editArticle?articleId='+${article.articleId}}">
+					<button>编辑</button>
+				</a>
+				<a th:href = "@{'/main/deleteArticle?articleId='+${article.articleId}}">
+					<button>删除</button>
+				</a>
+			</td>
+		</tr>
+	</table>
+</center>
+</body>
+</html>

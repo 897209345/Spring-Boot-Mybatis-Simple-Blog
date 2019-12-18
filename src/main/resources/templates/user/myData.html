@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>个人信息</title>
+</head>
+
+<body>
+	<div th:include="index::top"></div>
+	<center>
+		<h3>个人信息</h3>
+		<table border="1" th:object="${user}" cellpadding="5" Style="border-collapse:collapse;border-color: #cccccc">
+			<tr>
+				<td width="80px">用户名</td>
+				<td th:text="*{username}" width="250px"></td>
+			</tr>
+			<tr>
+				<td>邮箱</td>
+				<td th:text="*{email}"></td>
+			</tr>
+			<tr>
+				<td>性别</td>
+				<td th:text="*{gender}"></td>
+			</tr>
+			<tr>
+				<td>生日</td>
+				<td th:text="*{birthday}"></td>
+			</tr>
+			<tr>
+				<td>电话</td>
+				<td th:text="*{phone}"></td>
+			</tr>
+			<tr>
+				<td>地址</td>
+				<td th:text="*{address}"></td>
+			</tr>
+			<tr>
+				<td>个人简介</td>
+				<td th:text="*{personal}"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<a th:href="@{/main/editMyData}" th:text="修改个人信息"></a>
+				</td>
+			</tr>
+		</table>
+	</center>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv = "Content-Type" content = "text/html; charset=UTF-8">
+	<title>显示数据</title>
+</head>
+
+<body>
+<div th:include = "index::top"></div>
+<center>
+	<h3>后台信息</h3>
+	<table th:if = "${userSession}=='admin'" border = "1" align = "center" cellpadding="5"
+	       Style="border-collapse:collapse;border-color: #cccccc">
+		<tr align="center" style="font-family: 黑体;background-color: #999999">
+			<td>注册时间</td>
+			<td>用户名</td>
+			<td>密码</td>
+			<td>邮箱</td>
+			<td>性别</td>
+			<td>出生日期</td>
+			<td>电话号码</td>
+			<td>家庭住址</td>
+			<td>备注</td>
+		</tr>
+		<tr th:each = "i:${userList}">
+			<td th:text = "${i.registerTime}"></td>
+			<td th:text = "${i.username}"></td>
+			<td th:text = "${i.password}"></td>
+			<td th:text = "${i.email}"></td>
+			<td th:text = "${i.gender}"></td>
+			<td th:text = "${i.birthday}"></td>
+			<td th:text = "${i.phone}"></td>
+			<td th:text = "${i.address}"></td>
+			<td th:text = "${i.personal}"></td>
+		</tr>
+	</table>
+	<div th:if = "${userSession}!='admin'">
+		<font color = "red" th:text = "'*您无权查看该信息'"></font>
+	</div>
+</center>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "zh" xmlns:th = "http://www.thymeleaf.org">
+<head>
+	<meta charset = "UTF-8">
+	<title>留言板</title>
+</head>
+<body>
+<div th:include = "index::top"></div>
+<center>
+	<h3>留言板</h3>
+	<a th:href="@{/main/writeMessage}">
+		<button>写留言</button>
+	</a>
+	<br><br>
+	<table border = "1" align = "center" cellpadding="5" Style="border-collapse:collapse;border-color: #cccccc">
+		<tr align="center" style="font-family: 黑体;background-color: #999999">
+			<td width="10%">用户名</td>
+			<td width="40%">留言信息</td>
+			<td width="15%">留言时间</td>
+		</tr>
+		<tr th:each = "message:${messages}">
+			<td th:text = "${message.username}"></td>
+			<td th:text = "${message.messageField}"></td>
+			<td th:text = "${message.messageTime}"></td>
+		</tr>
+	</table>
+</center>
+
+</body>
+</html>

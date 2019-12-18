@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>修改信息</title>
+</head>
+
+<body>
+	<div th:include="index::top"></div>
+	<center>
+		<h3>修改个人信息</h3>
+		<form th:action="@{/main/editMyData/input}" th:object="${user}" method="post">
+			<table>
+				<tr>
+					<td>用户名</td>
+					<td>
+						<div th:field="*{username}" th:text="*{username}"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>邮箱</td>
+					<td><input type="text" th:field="*{email}" th:value="*{email}"></td>
+				</tr>
+				<tr>
+					<td>性别</td>
+					<td><input type="text" th:field="*{gender}" th:value="*{gender}"></td>
+				</tr>
+				<tr>
+					<td>生日</td>
+					<td><input type="text" th:field="*{birthday}" th:value="*{birthday}"></td>
+				</tr>
+				<tr>
+					<td>电话</td>
+					<td><input type="text" th:field="*{phone}" th:value="*{phone}"></td>
+				</tr>
+				<tr>
+					<td>地址</td>
+					<td><input type="text" th:field="*{address}" th:value="*{address}"></td>
+				</tr>
+				<tr>
+					<td>介绍</td>
+					<td><input type="text" th:field="*{personal}" th:value="*{personal}"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="确认修改"></td>
+				</tr>
+			</table>
+
+		</form>
+	</center>
+
+
+</body>
+
+</html>

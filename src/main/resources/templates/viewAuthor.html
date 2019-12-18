@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang = "zh" xmlns:th = "http://www.thymeleaf.org">
+<head>
+	<meta charset = "UTF-8">
+	<title>查看作者</title>
+</head>
+<body>
+<div th:include = "index::top"></div>
+<center>
+	<h3 th:text="${author}+'的文章'"></h3>
+	<div th:include = "index::articles"></div>
+</center>
+</body>
+</html>

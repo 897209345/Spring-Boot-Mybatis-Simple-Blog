@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+	<title>首页</title>
+	<meta http-equiv = "Content-Type" content = "text/html; charset=UTF-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div th:fragment = "top">
+	<center>
+		<h1>中文博客网</h1>
+		<table border = "1" cellpadding = "5" bordercolor = "green"
+		       Style = "border-collapse:collapse;border-color: #cccccc">
+			<tr align = "center">
+				<td width = "15%">
+					<div th:if = "${userSession}==null">
+						[<a th:href = "@{/main/login}">登录</a>]|[<a th:href = "@{/main/register}">注册</a>]
+					</div>
+					<div th:if = "${userSession}!=null">
+						[<font color = "blue" th:text = "'欢迎'+${userSession}"></font>]|[<a th:href = "@{/main/logout}"
+						                                                                   th:text = "退出"></a>]
+					</div>
+				</td>
+				<td width = "20%">[<a th:href = "@{/main}" th:text = "首页"></a>]|[<a th:href = "@{/main/myData}">个人信息</a>
+				                  ]|[<a
+							th:href = "@{/main/calendar}">日历</a>]
+				</td>
+				<td width = "15%">
+					[<a th:href = "@{/main/myArticles}" th:text = "我的文章"></a>]|[<a
+						th:href = "@{/main/writeArticle}">写文章</a>]
+				</td>
+				<td width = "10%">
+					[<a th:href = "@{/main/message}" th:text = "留言板"></a>]
+				</td>
+				<td width = "10%">
+					[<a th:href = "@{/main/showData}" th:text = "后台信息"></a>]
+				</td>
+			</tr>
+		</table>
+	</center>
+	<hr>
+</div>
+
+<center>
+	<h3>首 页</h3>
+	<div th:fragment = "articles">
+		<table border = "1" cellpadding = "5" Style = "border-collapse:collapse;border-color: #cccccc">
+			<tr align = "center" style = "font-family: 黑体;background-color: #999999">
+				<td width = "500px">文章标题</td>
+				<td width = "100px">作者</td>
+				<td width = "200px">发布时间</td>
+			</tr>
+			<tr th:each = "article:${articles}">
+				<td><a th:href = "@{'/main/viewArticle?articleId='+${article.articleId}}"
+				       th:text = "${article.title}"></a></td>
+				<td><a th:href = "@{'/main/viewAuthor?author='+${article.author}}" th:text = "${article.author}"></a>
+				</td>
+				<td th:text = "${article.publishTime}"></td>
+			</tr>
+		</table>
+	</div>
+</center>
+
+</body>
+
+</html>

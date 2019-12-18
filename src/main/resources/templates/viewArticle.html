@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "zh" xmlns:th = "http://www.thymeleaf.org">
+<head>
+	<meta charset = "UTF-8">
+	<title>查看文章</title>
+</head>
+<body>
+<div th:include = "index::top"></div>
+
+	<table th:object = "${article}" align="center" border="1">
+		<tr>
+			<td align="center" width="50%"><h3 th:text = "*{title}"></h3></td>
+		</tr>
+		<tr>
+			<td align="center">
+				<div>
+					<span th:text = "'作者 : '+*{author}"></span>
+					&nbsp&nbsp
+					<span th:text = "'发布时间 : '+*{publishTime}"></span>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td ><p th:text = "*{article}"></p></td>
+		</tr>
+	
+	</table>
+
+</body>
+</html>

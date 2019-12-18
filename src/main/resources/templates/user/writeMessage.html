@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang = "zh" xmlns:th = "http://www.thymeleaf.org">
+<head>
+	<meta charset = "UTF-8">
+	<title>写留言</title>
+</head>
+<body>
+<div th:include="index::top"></div>
+<center>
+	<h3>写留言</h3>
+	<form th:action = "@{/main/addMessage}" th:object = "${message}" method="post">
+		<table>
+			<tr>
+				<td><textarea cols = "80" rows = "20" th:field = "*{messageField}"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type = "submit" value = "发表"></td>
+			</tr>
+		</table>
+	</form>
+</center>
+</body>
+</html>
