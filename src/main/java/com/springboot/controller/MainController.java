@@ -141,7 +141,7 @@ public class MainController {
 	}
 	
 	@RequestMapping("/myData")
-	public String myData(User user, Model model) throws Exception {
+	public String myData(User user, Model model) {
 		String username = (String) model.getAttribute("userSession");
 		if ("".equals(username) || username == null) {
 			model.addAttribute("notice", "<font color='red'>*请登录后查看</font>");
@@ -297,6 +297,5 @@ public class MainController {
 			model.addAttribute("articles", this.articleService.queryArticlesByAuthor(username));
 			return "/user/myArticles";
 		}
-		
 	}
 }
